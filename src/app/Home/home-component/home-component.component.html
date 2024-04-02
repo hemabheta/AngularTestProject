@@ -1,0 +1,15 @@
+<div style="text-align: center;">
+  <h1>Welcome to Angular Basic Concepts Practice</h1>
+</div>
+<div style="display: grid; place-items: center;">
+  <button (click)="getrandomnumbervalue()">Generate Random Number</button>
+  {{numberToshow}}
+</div>
+<div style="display: grid; place-items: center;">
+  <input type="text" class="gap" placeholder="Enter Users name" [(ngModel)]="username" appRandomColor>
+  <p>{{ username }}</p>
+</div>
+<div style="display: grid; place-items: center;">
+  <p>{{ usernameTwoWayBinding }}</p>
+</div>
+<button class="gap" (click)="goBack()">Back</button>

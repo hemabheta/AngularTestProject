@@ -1,0 +1,27 @@
+<ul>
+    <div style="display: grid; place-items: center;">
+        <h1>List of Components</h1>
+        <li *ngFor="let components of angularComponents" (click)="onselected(components)">
+            <a href="javascript:void(0)">{{ components.name }}</a>
+        </li>
+    </div>
+</ul>
+<div style="display: grid; place-items: center;">
+    <div *ngIf="selectedComponent">
+        <button class="gap" *ngIf="selectedComponent.name === 'ServicesComponent'"
+            (click)="viewServicesComponent()">Visit Service</button>
+        <div *ngIf="selectedComponent.name === 'ServicesComponent' && showServicesComponent">
+            In services componnet has getrandnumber method is there it will produce random number in the Home componnet
+        </div>
+    </div>
+</div>
+<div style="display: grid; place-items: center;">
+    <div *ngIf="selectedComponent">
+        <button class="gap" *ngIf="selectedComponent.name === 'DirectivesComponent'"
+            (click)="viewDirectivesComponent()">Visit Directive</button>
+        <div *ngIf="selectedComponent.name === 'DirectivesComponent' && showDirectivesComponent">
+            In Directive componnet we are showing list of directive those are clickable and their usage..
+        </div>
+    </div>
+</div>
+<button class="gap" (click)="goBack()">Back</button>

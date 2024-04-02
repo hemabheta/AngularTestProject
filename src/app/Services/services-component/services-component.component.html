@@ -1,0 +1,28 @@
+<ul>
+    <div style="display: grid; place-items: center;">
+        <h1>List of Services</h1>
+        <li *ngFor="let services of angularServices" (click)="onselected(services)">
+            <a href="javascript:void(0)">{{ services.name }}</a>
+        </li>
+    </div>
+</ul>
+<div style="display: grid; place-items: center;">
+    <div *ngIf="selectedService">
+        <button class="gap" *ngIf="selectedService.name === 'HTTPGet'" (click)="viewServicesofHTTPGet()">Visit Service</button>
+        <div *ngIf="selectedService.name === 'HTTPGet' && showServicesofHTTPGet">
+            Use the HttpClient. get() method to fetch data from a server. This asynchronous method sends an HTTP
+            request,
+            and returns an Observable that emits the requested data when the response is received.
+        </div>
+    </div>
+</div>
+<div style="display: grid; place-items: center;">
+    <div *ngIf="selectedService">
+        <button class="gap" *ngIf="selectedService.name === 'HTTPPost'" (click)="viewServicesofHTTPPost()">Visit Directive</button>
+        <div *ngIf="selectedService.name === 'HTTPPost' && showServicesofHTTPPost">
+            The POST method is one of the most commonly used HTTP methods in REST APIs and is used to create a new
+            resource on the server.
+        </div>
+    </div>
+</div>
+<button class="gap" (click)="goBack()">Back</button>

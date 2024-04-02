@@ -1,0 +1,26 @@
+<ul>
+  <div style="display: grid; place-items: center;">
+    <h1>List of Directives</h1>
+    <li *ngFor="let directive of angularDirectives" (click)="onselected(directive)">
+      <a href="javascript:void(0)">{{ directive.name }}</a>
+    </li>
+  </div>
+</ul>
+<div style="display: grid; place-items: center;">
+  <div *ngIf="selectedDirective">
+    <button class="gap" *ngIf="selectedDirective.name === 'ngIf'" (click)="viewContentNgIf()">Visit Directive</button>
+    <div *ngIf="selectedDirective.name === 'ngIf' && showContentNgIf" appRandomColor>
+      Content to display when ngIf directive is selected
+    </div>
+  </div>
+</div>
+<div style="display: grid; place-items: center;">
+  <div *ngIf="selectedDirective">
+    <button class="gap" *ngIf="selectedDirective.name === 'ngFor'" (click)="viewContentNgFor()">Visit Directive</button>
+    <div *ngIf="selectedDirective.name === 'ngFor' && showContentNgFor">
+      Content to display when ngFor directive is selected
+    </div>
+  </div>
+</div>
+
+<button class="gap" (click)="goBack()">Back</button>
