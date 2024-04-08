@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: '', component: HeaderComponent },
   { path: 'home', component: HomeComponent },
   { path: 'components', component: ComponentsComponent },
+  { path: 'directives/:id', component: DirectiveComponent },
   { path: 'directives', component: DirectiveComponent },
   { path: 'services', component: ServicesComponent },
 ];

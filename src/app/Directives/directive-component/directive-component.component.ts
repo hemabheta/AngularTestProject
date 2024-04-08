@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-directive-component',
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class DirectiveComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -17,9 +17,11 @@ export class DirectiveComponent implements OnInit {
  showContentNgFor: boolean = false;
   angularDirectives: Directives[] = [
     {
+      id:1,
     name:  'ngIf',
     },
     {
+      id:2,
       name:   'ngFor'
     }
     ] 
@@ -33,10 +35,14 @@ export class DirectiveComponent implements OnInit {
   onselected(directve:Directives):void{
     this.selectedDirective=directve
   }
-  goBack(){
-    this.router.navigate(['/']);
-  }
+  goBack() {
+    
+      let selectedId = this.selectedDirective ? this.selectedDirective.id : undefined;
+      this.router.navigate(['/'], { queryParams: { id: selectedId } });
+    }
+    
 }
 export class Directives{
+  id:number=1
   name: string ="";
 }
